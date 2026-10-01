@@ -30,8 +30,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-ivory">
-      <p className="border-b border-deep-slate/10 py-2 text-center text-[0.7rem] font-medium tracking-[0.22em] text-muted">
-        RYE · NEW CASTLE · PORTSMOUTH · NORTH HAMPTON
+      <p className="border-b border-deep-slate/10 py-2 text-center text-[0.68rem] font-medium tracking-[0.12em] text-muted sm:tracking-[0.22em]">
+        <span className="sm:hidden">RYE · NEW CASTLE · PORTSMOUTH · N. HAMPTON</span>
+        <span className="hidden sm:inline">RYE · NEW CASTLE · PORTSMOUTH · NORTH HAMPTON</span>
       </p>
       <div className="border-b border-deep-slate/10">
         <Container className="flex h-[4.5rem] items-center justify-between gap-4">
@@ -52,7 +53,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-[0.92rem] tracking-wide text-deep-slate/80 transition-colors hover:text-deep-slate"
+                className="whitespace-nowrap text-[0.92rem] tracking-wide text-deep-slate/80 transition-colors hover:text-deep-slate"
               >
                 {item.label.toUpperCase()}
               </Link>
@@ -60,8 +61,20 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <a
+              href={brand.phoneHref}
+              className="hidden whitespace-nowrap text-[0.95rem] font-medium tracking-wide text-deep-slate 2xl:inline"
+            >
+              {brand.phone}
+            </a>
+            <a
+              href={brand.phoneHref}
+              className="inline-flex h-11 items-center bg-deep-slate px-4 text-sm font-medium tracking-wide text-ivory sm:hidden"
+            >
+              CALL
+            </a>
             <div className="hidden sm:block">
-              <CtaLink href="/#contact">BOOK AN ASSESSMENT</CtaLink>
+              <CtaLink href="/#contact" className="whitespace-nowrap">DISCUSS YOUR HOME</CtaLink>
             </div>
             <button
               type="button"
@@ -108,8 +121,11 @@ export function Header() {
                 className="mt-3 w-full"
                 onClick={() => setOpen(false)}
               >
-                BOOK AN ASSESSMENT
+                DISCUSS YOUR HOME
               </CtaLink>
+              <a href={brand.phoneHref} className="mt-2 py-3 text-center text-base font-medium underline underline-offset-4">
+                Call {brand.phone}
+              </a>
             </Container>
           </div>
         ) : null}

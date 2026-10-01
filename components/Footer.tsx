@@ -16,7 +16,9 @@ export function Footer() {
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">
             {brand.legal}
           </p>
-          <a href={`mailto:${brand.email}`} className="mt-4 inline-block break-all text-sm underline underline-offset-4">{brand.email}</a>
+          <a href={brand.phoneHref} className="mt-4 block text-base font-medium underline underline-offset-4">{brand.phone}</a>
+          <a href={`mailto:${brand.email}`} className="mt-2 inline-block break-all text-sm underline underline-offset-4">{brand.email}</a>
+          <p className="mt-4 text-sm text-muted">Serving Rye, New Castle, Portsmouth, and North Hampton, New Hampshire.</p>
         </div>
 
         <div>

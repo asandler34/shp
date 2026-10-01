@@ -25,7 +25,7 @@ export function Section({
       id={id}
       className={`scroll-mt-32 ${tones[tone]} ${className}`}
     >
-      <Container className={`py-20 sm:py-24 lg:py-28 ${containerClassName}`}>
+      <Container className={`py-14 sm:py-24 lg:py-28 ${containerClassName}`}>
         {children}
       </Container>
     </section>

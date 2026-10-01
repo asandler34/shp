@@ -1,36 +1,39 @@
 import { About } from "@/components/sections/About";
-import { Assessment } from "@/components/sections/Assessment";
-import { Boundaries } from "@/components/sections/Boundaries";
-import { Capabilities } from "@/components/sections/Capabilities";
+import { Concierge } from "@/components/sections/Concierge";
+import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
-import { HomeownershipOffers } from "@/components/sections/HomeownershipOffers";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { LocalPresence } from "@/components/sections/LocalPresence";
-import { MaintenanceCalendar } from "@/components/sections/MaintenanceCalendar";
-import { Membership } from "@/components/sections/Membership";
-import { Problem } from "@/components/sections/Problem";
-import { RecordsAndTrust } from "@/components/sections/RecordsAndTrust";
-import { TwoOffers } from "@/components/sections/TwoOffers";
-import { VendorTransparency } from "@/components/sections/VendorTransparency";
+import { Pricing } from "@/components/sections/Pricing";
+import { VisitChecklist } from "@/components/sections/VisitChecklist";
+import { WhoWeHelp } from "@/components/sections/WhoWeHelp";
+import { WhyUs } from "@/components/sections/WhyUs";
+import { faqs } from "@/lib/site";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 export default function Home() {
   return (
     <main id="main">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Hero />
-      <Problem />
-      <HomeownershipOffers />
-      <TwoOffers />
-      <Capabilities />
-      <HowItWorks />
-      <Assessment />
-      <Membership />
-      <MaintenanceCalendar />
-      <VendorTransparency />
-      <RecordsAndTrust />
-      <Boundaries />
-      <LocalPresence />
+      <WhoWeHelp />
+      <Concierge />
+      <Pricing />
+      <VisitChecklist />
+      <WhyUs />
       <About />
+      <Faq />
       <FinalCta />
     </main>
   );

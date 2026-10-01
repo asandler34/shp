@@ -36,6 +36,8 @@ section[id] { scroll-margin-top: 8rem; }
   }
 }
 
+html { font-size: 106.25%; }
+
 body {
   background: var(--warm-ivory);
   color: var(--deep-slate);

@@ -5,6 +5,7 @@ import { brand, towns } from "@/lib/site";
 const interests = [
   "Property Stewardship",
   "Home Independence",
+  "Concierge",
   "Not sure yet",
 ] as const;
 
@@ -141,6 +142,6 @@ export async function submitInquiry(
   return {
     status: "success",
     phone,
-    message: `Thank you. We will call you at ${phone} to discuss the Home Operations Assessment.`,
+    message: `Thank you. We will call you at ${phone} to talk about your home.`,
   };
 }

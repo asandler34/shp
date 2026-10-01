@@ -3,7 +3,7 @@
 import { useActionState, useState } from "react";
 import Link from "next/link";
 import { submitInquiry, type InquiryState } from "@/app/actions/inquiry";
-import { brand, pricing, towns } from "@/lib/site";
+import { brand, towns } from "@/lib/site";
 
 const initialInquiryState: InquiryState = { status: "idle" };
 
@@ -31,7 +31,7 @@ export function InquiryForm() {
         </p>
         <p className="mt-4 text-sm leading-relaxed text-ivory/65">
           Email is not required. If you also left an email, we may use it for a
-          written follow-up about the assessment.
+          written follow-up.
         </p>
       </div>
     );
@@ -40,11 +40,10 @@ export function InquiryForm() {
   return (
     <form action={formAction} className="border border-ivory/15 bg-ivory/8 p-7 sm:p-8">
       <p className="font-serif text-2xl tracking-tight text-ivory">
-        Book an assessment
+        Request a call
       </p>
       <p className="mt-3 text-[1.05rem] leading-relaxed text-ivory/78">
-        Leave a phone number and we will call you about the $
-        {pricing.assessment} Home Operations Assessment.
+        Leave a phone number and we will call you to talk about your home.
       </p>
 
       <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
@@ -119,11 +118,15 @@ export function InquiryForm() {
           <div className="mt-3 space-y-2.5 text-base text-ivory/90">
             <label className="flex items-center gap-3">
               <input type="radio" name="interest" value="Property Stewardship" checked={fields.interest === "Property Stewardship"} onChange={(event) => setFields({ ...fields, interest: event.target.value })} className="size-4" />
-              Property Stewardship
+              Second home / Property Stewardship
             </label>
             <label className="flex items-center gap-3">
               <input type="radio" name="interest" value="Home Independence" checked={fields.interest === "Home Independence"} onChange={(event) => setFields({ ...fields, interest: event.target.value })} className="size-4" />
               Home Independence
+            </label>
+            <label className="flex items-center gap-3">
+              <input type="radio" name="interest" value="Concierge" checked={fields.interest === "Concierge"} onChange={(event) => setFields({ ...fields, interest: event.target.value })} className="size-4" />
+              Concierge
             </label>
             <label className="flex items-center gap-3">
               <input type="radio" name="interest" value="Not sure yet" checked={fields.interest === "Not sure yet"} onChange={(event) => setFields({ ...fields, interest: event.target.value })} className="size-4" />

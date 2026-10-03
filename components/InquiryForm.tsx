@@ -1,6 +1,7 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
+import { trackEvent } from "@/components/Analytics";
 import Link from "next/link";
 import { submitInquiry, type InquiryState } from "@/app/actions/inquiry";
 import { brand, towns } from "@/lib/site";
@@ -19,6 +20,10 @@ export function InquiryForm() {
     submitInquiry,
     initialInquiryState,
   );
+
+  useEffect(() => {
+    if (state.status === "success") trackEvent("generate_lead", { method: "inquiry_form", interest: fields.interest || "not_specified" });
+  }, [state.status, fields.interest]);
 
   if (state.status === "success") {
     return (

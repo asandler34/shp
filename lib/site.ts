@@ -8,7 +8,15 @@ export const brand = {
   email: "seacoasthomepartners@gmail.com",
   phone: "(603) 396-7828",
   phoneHref: "tel:+16033967828",
+  hours: "Monday to Saturday, 8 AM to 6 PM",
+  hoursShort: "Mon to Sat, 8 to 6",
 } as const;
+
+// SimplyBook.me booking page. If emptied, booking buttons fall back to the
+// call-request form.
+export const bookingUrl = "https://seacoasthomepartners.simplybook.me/";
+
+export const gaMeasurementId = "G-E39TL5VSXZ";
 
 export const towns = [
   "Rye",
@@ -20,9 +28,9 @@ export const towns = [
 export const townsLine = "Rye · New Castle · Portsmouth · North Hampton";
 
 export const pricing = {
-  assessment: 399,
-  membership: 399,
-  concierge: 649,
+  assessment: 250,
+  membership: 199,
+  concierge: 599,
   conciergeHours: 3,
   projectPercent: 8,
 } as const;
@@ -150,6 +158,14 @@ export const visitCheckCount = visitChecklist.reduce((n, g) => n + g.items.lengt
 
 export const faqs = [
   {
+    q: "How much does home watch and home management cost?",
+    a: `The intro call is free. Every client then starts with a $${pricing.assessment} Home Operations Assessment, an in home consultation. After that, Home Stewardship is $${pricing.membership} a month and Concierge is $${pricing.concierge} a month. Larger projects are coordinated for ${pricing.projectPercent}% of the project cost. We tell you the cost of anything extra before it happens.`,
+  },
+  {
+    q: "Are you insured and bonded?",
+    a: "Yes. Seacoast Home Partners is insured and bonded.",
+  },
+  {
     q: "How is this different from a home watch service?",
     a: "Home watch checks the house. We also keep the maintenance plan, coordinate the professionals, manage projects, and keep the records, so one local person knows the home and takes responsibility for what happens next.",
   },
@@ -172,5 +188,32 @@ export const faqs = [
   {
     q: "Where do you work?",
     a: "Rye, New Castle, Portsmouth, and North Hampton, New Hampshire. The small service area is deliberate, so we can respond quickly.",
+  },
+] as const;
+
+export const townPages = [
+  {
+    slug: "rye-nh",
+    town: "Rye",
+    intro: "Rye homes face salt air, nor'easters, and long stretches empty between seasons. We keep an eye on the house, plan the maintenance, and manage the professionals so nothing waits for your next trip.",
+    local: "Coastal homes along Ocean Boulevard and in Rye Beach take the brunt of winter storms. After major weather we check the property and send you photos, so you know the house is fine before you start to worry.",
+  },
+  {
+    slug: "new-castle-nh",
+    town: "New Castle",
+    intro: "New Castle's island homes are beautiful and exposed. Seacoast Home Partners gives owners one local contact who knows the house, its systems, and the people who service it.",
+    local: "Getting a contractor out to the island at the right time takes coordination. We schedule the visit, meet the professional at the door, and confirm the work is done.",
+  },
+  {
+    slug: "portsmouth-nh",
+    town: "Portsmouth",
+    intro: "From historic South End homes to newer builds, Portsmouth properties need steady attention. We handle the maintenance calendar, the vendors, and the follow through, whether you live here year round or not.",
+    local: "Older Portsmouth homes often need specialized trades. We keep the records, track what was done and when, and line up qualified professionals for the work.",
+  },
+  {
+    slug: "north-hampton-nh",
+    town: "North Hampton",
+    intro: "North Hampton homeowners and their families use Seacoast Home Partners to keep larger properties maintained without managing every detail themselves.",
+    local: "Larger lots mean more systems to watch: wells, septic, generators, and long driveways in winter. Our monthly visit covers all of it, and anything that needs a professional goes on your calendar.",
   },
 ] as const;

@@ -30,7 +30,10 @@ export default function OpengraphImage() {
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 34 }}>
-          <span style={{ fontWeight: 700 }}>Seacoast Home Partners</span>
+          <span style={{ display: "flex", alignItems: "center", gap: 20 }}>
+            <span style={{ display: "flex", width: 72, height: 72, borderRadius: 12, background: "#26343a", color: "#f4f1ea", alignItems: "center", justifyContent: "center", fontSize: 26, fontWeight: 700 }}>SHP</span>
+            <span style={{ fontWeight: 700 }}>Seacoast Home Partners</span>
+          </span>
           <span>(603) 396-7828</span>
         </div>
       </div>

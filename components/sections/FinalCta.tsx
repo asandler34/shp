@@ -1,5 +1,6 @@
 import { InquiryForm } from "@/components/InquiryForm";
 import { Section } from "@/components/Section";
+import { BookCta } from "@/components/BookCta";
 import { brand, townsLine } from "@/lib/site";
 
 export function FinalCta() {
@@ -17,12 +18,16 @@ export function FinalCta() {
             Leave your number and we will call you back to talk through the
             property and the right first step. Or call now.
           </p>
-          <a
-            href={brand.phoneHref}
-            className="mt-6 inline-flex min-h-12 items-center bg-ivory px-6 font-medium tracking-wide text-deep-slate hover:bg-cream"
-          >
-            CALL {brand.phone}
-          </a>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <BookCta variant="onDark">BOOK A FREE INTRO CALL</BookCta>
+            <a
+              href={brand.phoneHref}
+              className="inline-flex min-h-12 items-center justify-center border border-ivory/40 px-6 text-sm font-medium tracking-wide text-ivory hover:border-ivory"
+            >
+              CALL {brand.phone}
+            </a>
+          </div>
+          <p className="mt-4 text-base text-ivory/70">{brand.hours}</p>
           <p className="mt-8 text-base tracking-wide text-ivory/70">{townsLine}</p>
           <p className="mt-4 text-base text-ivory/80">
             Prefer email?{" "}

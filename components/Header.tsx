@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { brand, nav } from "@/lib/site";
 import { Container } from "@/components/Container";
-import { CtaLink } from "@/components/CtaLink";
+import { BookCta } from "@/components/BookCta";
+import { Logo } from "@/components/Logo";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -30,19 +31,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-ivory">
-      <p className="border-b border-deep-slate/10 py-2 text-center text-[0.68rem] font-medium tracking-[0.12em] text-muted sm:tracking-[0.22em]">
-        <span className="sm:hidden">RYE · NEW CASTLE · PORTSMOUTH · N. HAMPTON</span>
-        <span className="hidden sm:inline">RYE · NEW CASTLE · PORTSMOUTH · NORTH HAMPTON</span>
+      <p className="bg-deep-slate py-2 text-center text-[0.72rem] font-medium tracking-[0.08em] text-ivory/90">
+        <a href={brand.phoneHref} className="underline-offset-4 hover:underline" data-track="phone_click">Call {brand.phone}</a>
+        <span className="hidden sm:inline"> · {brand.hoursShort} · Serving Rye, New Castle, Portsmouth & North Hampton</span>
       </p>
       <div className="border-b border-deep-slate/10">
         <Container className="flex h-[4.5rem] items-center justify-between gap-4">
-          <Link href="/" className="min-w-0 py-1" onClick={() => setOpen(false)}>
-            <span className="block font-serif text-[1.15rem] leading-tight font-semibold tracking-tight text-deep-slate">
-              {brand.name}
-            </span>
-            <span className="mt-0.5 hidden text-[0.78rem] tracking-wide text-muted sm:block">
-              {brand.headline}
-            </span>
+          <Link href="/" className="min-w-0 py-1" aria-label={`${brand.name} home`} onClick={() => setOpen(false)}>
+            <Logo />
           </Link>
 
           <nav
@@ -74,7 +70,7 @@ export function Header() {
               CALL
             </a>
             <div className="hidden sm:block">
-              <CtaLink href="/#contact" className="whitespace-nowrap">DISCUSS YOUR HOME</CtaLink>
+              <BookCta className="whitespace-nowrap">BOOK A CALL</BookCta>
             </div>
             <button
               type="button"
@@ -116,13 +112,7 @@ export function Header() {
                   {item.label.toUpperCase()}
                 </Link>
               ))}
-              <CtaLink
-                href="/#contact"
-                className="mt-3 w-full"
-                onClick={() => setOpen(false)}
-              >
-                DISCUSS YOUR HOME
-              </CtaLink>
+              <BookCta className="mt-3 w-full">BOOK A FREE INTRO CALL</BookCta>
               <a href={brand.phoneHref} className="mt-2 py-3 text-center text-base font-medium underline underline-offset-4">
                 Call {brand.phone}
               </a>
